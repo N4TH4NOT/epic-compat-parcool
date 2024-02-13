@@ -69,6 +69,12 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     compileOnly project(":common")
 
+    // Epic Figth
+    implementation fg.deobf("curse.maven:epic-fight-mod-405076:${epic_fight_version}")
+
+    // ParCool
+    implementation fg.deobf("curse.maven:parcool-482378:${parcool_version}")
+
     // Configured
     runtimeOnly fg.deobf("curse.maven:configured-457570:${configured_version}")
 
@@ -77,13 +83,13 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-${jei_mc_version}-forge:${jei_version}")
 
     // CraftTweaker
-    runtimeOnly(fg.deobf("com.blamejared.crafttweaker:CraftTweaker-forge-${crafttweaker_mc_version}:${crafttweaker_version}"))
+    // runtimeOnly(fg.deobf("com.blamejared.crafttweaker:CraftTweaker-forge-${crafttweaker_mc_version}:${crafttweaker_version}"))
 
     // Mekanism
-    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_mc_version}-${mekanism_version}") // core
-    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_mc_version}-${mekanism_version}:additions") // Mekanism: Additions
-    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_mc_version}-${mekanism_version}:generators") // Mekanism: Generators
-    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_mc_version}-${mekanism_version}:tools") // Mekanism: Tools
+    // runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_mc_version}-${mekanism_version}") // core
+    // runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_mc_version}-${mekanism_version}:additions") // Mekanism: Additions
+    // runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_mc_version}-${mekanism_version}:generators") // Mekanism: Generators
+    // runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_mc_version}-${mekanism_version}:tools") // Mekanism: Tools
 }
 
 mixin {
