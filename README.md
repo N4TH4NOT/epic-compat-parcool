@@ -10,7 +10,7 @@
 ## Further Suggestions
 
 - Works well with Epic Fights `filter_animation` option beeing disabled (and I would actually recommend to disable this setting).
-- I would also recommend to enable `no_mining_in_combat` and use Epic Tweaks alongside this mod if you seek a more immersive experience.
+- I would also recommend to enable `no_mining_in_combat` and use [Epic Tweaks](https://www.curseforge.com/minecraft/mc-mods/epic-tweaks) alongside this mod if you seek a more immersive experience.
 
 ## Known issues
 
