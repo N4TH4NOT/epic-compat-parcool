@@ -3,6 +3,7 @@
   "compatibilityLevel": "JAVA_17",
   "package": "${group}.${mod_id}.forge.mixins",
   "mixins": [
+    "epicfight.client.world.capabilities.entitypatch.player.AbstractClientPlayerPatchMixin",
     "epicfight.client.world.capabilities.entitypatch.player.PlayerPatchMixin"
   ],
   "injectors": {
