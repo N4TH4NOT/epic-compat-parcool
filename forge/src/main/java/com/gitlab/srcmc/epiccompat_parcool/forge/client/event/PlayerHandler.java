@@ -37,25 +37,31 @@ public class PlayerHandler {
     public static void onTickLocal(PlayerTickEvent event) {
         if(event.player.isLocalPlayer()) {
             var parkourPlayer = (IParkourPlayerPatch)ClientEngine.getInstance().getPlayerPatch();
-            
-            for(var action : Parkourability.get(event.player).getList()) {
-                if(action instanceof FastRun) {
-                    continue; // use epic fight/vanilla animations
-                }
 
-                if(action.isDoing()) {
-                    if(!parkourPlayer.isParkourActive()) {
-                        parkourPlayer.setParkourActive(true);
-                        NetworkManager.sendToServer(new CPSetParkourActive(true));
+            if(parkourPlayer != null) {
+                var parkourAbility = Parkourability.get(event.player);
+
+                if(parkourAbility != null) {
+                    for(var action : parkourAbility.getList()) {
+                        if(action instanceof FastRun) {
+                            continue; // use epic fight/vanilla animations
+                        }
+
+                        if(action.isDoing()) {
+                            if(!parkourPlayer.isParkourActive()) {
+                                parkourPlayer.setParkourActive(true);
+                                NetworkManager.sendToServer(new CPSetParkourActive(true));
+                            }
+
+                            return;
+                        }
                     }
-
-                    return;
                 }
-            }
-            
-            if(parkourPlayer.isParkourActive()) {
-                parkourPlayer.setParkourActive(false);
-                NetworkManager.sendToServer(new CPSetParkourActive(false));
+                
+                if(parkourPlayer.isParkourActive()) {
+                    parkourPlayer.setParkourActive(false);
+                    NetworkManager.sendToServer(new CPSetParkourActive(false));
+                }
             }
         }
     }
