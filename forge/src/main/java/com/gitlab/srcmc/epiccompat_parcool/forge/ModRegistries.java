@@ -34,7 +34,7 @@ public class ModRegistries {
         Sounds.REGISTRY.register(bus);
         Items.REGISTRY.register(bus);
         Blocks.REGISTRY.register(bus);
-        BlockEntities.REGISTRY.register(bus);
+        Blocks.Entities.REGISTRY.register(bus);
     }
 
     public static class Sounds {
@@ -59,13 +59,13 @@ public class ModRegistries {
         static {
             REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, ModCommon.MOD_ID);
         }
-    }
 
-    public static class BlockEntities {
-        public static final DeferredRegister<BlockEntityType<?>> REGISTRY;
-
-        static {
-            REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, ModCommon.MOD_ID);
+        public static class Entities {
+            public static final DeferredRegister<BlockEntityType<?>> REGISTRY;
+    
+            static {
+                REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, ModCommon.MOD_ID);
+            }
         }
     }
 }
