@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.2] - 2024-02-26
+
+***Fixed***
+
+- Missing version dependencies for EpicFight and ParCool
+
 ## [1.0.1] - 2024-02-14
 
 ***Fixed***
