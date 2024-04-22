@@ -23,5 +23,4 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod(ModCommon.MOD_ID)
 public class ModForge {
-    static { ModRegistries.init(); }
 }
