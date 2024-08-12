@@ -1,1 +1,12 @@
-{}
+{
+  "projects": [
+    {
+      "slug": "epic-fight-mod",
+      "type": "requiredDependency"
+    },
+    {
+      "slug": "parcool",
+      "type": "requiredDependency"
+    }
+  ]
+}
