@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "project_id": "vu3NZ5Ma",
+    "dependency_type": "required"
+  },
+  {
+    "project_id": "Fsvx2bdR",
+    "dependency_type": "required"
+  }
+]
