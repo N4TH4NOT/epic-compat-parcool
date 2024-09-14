@@ -26,6 +26,7 @@ import com.gitlab.srcmc.epiccompat_parcool.forge.network.client.CPSetParkourActi
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -64,5 +65,13 @@ public class PlayerHandler {
                 }
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void onBlockUse(PlayerInteractEvent.RightClickBlock event) {
+        var player = (IParkourPlayerPatch)ClientEngine.getInstance().getPlayerPatch();
+        if (player == null) return;
+
+        if (player.isParkourActive()) event.setCanceled(true);
     }
 }
