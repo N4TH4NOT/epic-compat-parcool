@@ -24,6 +24,7 @@ import com.gitlab.srcmc.epiccompat_parcool.forge.client.capabilities.IParkourPla
 import com.gitlab.srcmc.epiccompat_parcool.forge.network.NetworkManager;
 import com.gitlab.srcmc.epiccompat_parcool.forge.network.client.CPSetParkourActive;
 
+import net.minecraft.world.InteractionHand;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -31,6 +32,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import yesman.epicfight.client.ClientEngine;
+import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
 
 @Mod.EventBusSubscriber(modid = ModCommon.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
 public class PlayerHandler {
@@ -69,9 +71,10 @@ public class PlayerHandler {
 
     @SubscribeEvent
     public static void onBlockUse(PlayerInteractEvent.RightClickBlock event) {
-        var player = (IParkourPlayerPatch)ClientEngine.getInstance().getPlayerPatch();
-        if (player == null) return;
+        LocalPlayerPatch player = ClientEngine.getInstance().getPlayerPatch();
 
-        if (player.isParkourActive()) event.setCanceled(true);
+        if (player instanceof IParkourPlayerPatch parkourPlayer && parkourPlayer.isParkourActive()) event.setCanceled(true);
+        else if (player != null && player.isBattleMode() && event.getHand() == InteractionHand.OFF_HAND)
+            event.setCanceled(true);
     }
 }
